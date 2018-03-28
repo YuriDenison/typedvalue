@@ -1,4 +1,5 @@
 # TypedValue
+[ ![Download](https://api.bintray.com/packages/volkman/android/typedvalue/images/download.svg) ](https://bintray.com/volkman/android/typedvalue/_latestVersion)
 TypedValue is a library project to simplify access to shared preferences and
 
 # Installation
