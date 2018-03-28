@@ -1,0 +1,67 @@
+ext.versions = [
+    compileSdk                : 27,
+    buildTools                : '27.0.3',
+
+    androidGradlePlugin       : '3.1.0',
+    versionsGradlePlugin      : '0.17.0',
+    bintrayGradlePlugin       : '1.8.0',
+    androidMavenPlugin       : '2.0',
+
+    kotlin                    : '1.2.31',
+
+    supportLib                : '27.0.2',
+    constraintLayout          : '1.1.0-beta5',
+
+    gson                      : '2.8.2',
+
+    rxAndroid2                : '2.0.1',
+    rxJava2                   : '2.1.12',
+    rxKotlin                  : '2.2.0',
+    rxRelay                   : '2.0.0',
+    timber                    : '4.6.0',
+    snackbar                  : '2.11.0',
+
+    espresso                  : '3.0.1',
+    junit                     : '4.12',
+    spoon                     : 'parent-1.7.1',
+    supportTest               : '1.0.1',
+    mockito                   : '2.15.0',
+    mockitoKotlin             : '1.5.0',
+]
+
+ext.gradlePlugins = [
+    android       : "com.android.tools.build:gradle:$versions.androidGradlePlugin",
+    kotlin        : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+    versions      : "com.github.ben-manes:gradle-versions-plugin:$versions.versionsGradlePlugin",
+    bintray       : "com.jfrog.bintray.gradle:gradle-bintray-plugin:$versions.bintrayGradlePlugin",
+    androidMaven  : "com.github.dcendents:android-maven-gradle-plugin:$versions.androidMavenPlugin"
+]
+
+ext.libraries = [
+    kotlinStdLib             : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+
+    supportAnnotations       : "com.android.support:support-annotations:$versions.supportLib",
+    supportAppCompat         : "com.android.support:appcompat-v7:$versions.supportLib",
+    supportDesign            : "com.android.support:design:$versions.supportLib",
+    supportFragment          : "com.android.support:support-fragment:$versions.supportLib",
+    supportV4                : "com.android.support:support-v4:$versions.supportLib",
+    constraintLayout         : "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
+
+    gson                     : "com.google.code.gson:gson:$versions.gson",
+    timber                   : "com.jakewharton.timber:timber:$versions.timber",
+
+    rxAndroid2               : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid2",
+    rxJava2                  : "io.reactivex.rxjava2:rxjava:$versions.rxJava2",
+    rxKotlin                 : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
+    rxRelay                  : "com.jakewharton.rxrelay2:rxrelay:$versions.rxRelay",
+
+    espressoCore             : "com.android.support.test.espresso:espresso-core:$versions.espresso",
+    espressoContrib          : "com.android.support.test.espresso:espresso-contrib:$versions.espresso",
+    junit                    : "junit:junit:$versions.junit",
+    kotlinTestJunit          : "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
+    supportTestRules         : "com.android.support.test:rules:$versions.supportTest",
+    supportTestRunner        : "com.android.support.test:runner:$versions.supportTest",
+    mockito                  : "org.mockito:mockito-android:$versions.mockito",
+    mockitoKotlin            : "com.nhaarman:mockito-kotlin-kt1.1:$versions.mockitoKotlin",
+    snackbar                 : "com.nispok:snackbar:$versions.snackbar",
+]

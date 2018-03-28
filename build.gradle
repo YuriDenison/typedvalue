@@ -1,0 +1,29 @@
+buildscript {
+  apply from: 'dependencies.gradle'
+
+  repositories {
+    google()
+    jcenter()
+  }
+  dependencies {
+    classpath gradlePlugins.android
+    classpath gradlePlugins.kotlin
+    classpath gradlePlugins.versions
+    classpath gradlePlugins.bintray
+    classpath gradlePlugins.androidMaven
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+apply from: 'dependencies.gradle'
+apply plugin: 'com.github.ben-manes.versions'
