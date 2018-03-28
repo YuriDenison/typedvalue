@@ -37,16 +37,16 @@ class PreferenceDelegate(private val prefs: SharedPreferences) : KeyValueDelegat
   override fun getFloat(key: String, defaultValue: Float) = prefs.getFloat(key, defaultValue)
   override fun putFloat(key: String, value: Float) = prefs.edit().putFloat(key, value).apply()
 
-  override fun getStringSet(key: String): Set<String> = prefs.getStringSet(key, emptySet<String>())
+  override fun getStringSet(key: String, defaultValue: Set<String>): Set<String> = prefs.getStringSet(key, defaultValue)
   override fun putStringSet(key: String, value: Set<String>) = prefs.edit().putStringSet(key, value).apply()
 
   override fun getStringList(key: String, defaultValue: List<String>) = throw IllegalArgumentException("Unsupported type 'List<String>'")
   override fun putStringList(key: String, value: List<String>) = throw IllegalArgumentException("Unsupported type 'List<String>'")
 
-  override fun <T : Parcelable> getParcelable(key: String): T = throw IllegalArgumentException("Unsupported type 'Parcelable'")
+  override fun <T : Parcelable> getParcelable(key: String, defaultValue: T): T = throw IllegalArgumentException("Unsupported type 'Parcelable'")
   override fun <T : Parcelable> putParcelable(key: String, value: T) = throw IllegalArgumentException("Unsupported type 'Parcelable'")
 
-  override fun contains(key: String) = prefs.contains(key)
+  override operator fun contains(key: String) = prefs.contains(key)
 
   override fun remove(key: String) = prefs.edit().remove(key).apply()
 

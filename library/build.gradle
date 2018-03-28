@@ -13,6 +13,10 @@ android {
 dependencies {
   implementation libraries.kotlinStdLib
   implementation libraries.rxJava2
+
+  testImplementation libraries.junit
+  testImplementation libraries.kotlinTestJunit
+  testImplementation libraries.robolectric
 }
 
 apply from: 'publish.gradle'

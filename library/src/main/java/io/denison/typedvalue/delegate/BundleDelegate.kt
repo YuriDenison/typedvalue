@@ -25,13 +25,13 @@ class BundleDelegate(private val bundle: Bundle = Bundle()) : KeyValueDelegate {
   override fun getFloat(key: String, defaultValue: Float) = bundle.getFloat(key, defaultValue)
   override fun putFloat(key: String, value: Float) = bundle.putFloat(key, value)
 
-  override fun getStringSet(key: String): Set<String> = throw IllegalArgumentException("Unsupported type 'Set<String>'")
+  override fun getStringSet(key: String, defaultValue: Set<String>): Set<String> = throw IllegalArgumentException("Unsupported type 'Set<String>'")
   override fun putStringSet(key: String, value: Set<String>) = throw IllegalArgumentException("Unsupported type 'Set<String>'")
 
   override fun getStringList(key: String, defaultValue: List<String>): List<String> = bundle.getStringArrayList(key) ?: defaultValue
   override fun putStringList(key: String, value: List<String>) = bundle.putStringArrayList(key, ArrayList(value))
 
-  override fun <T : Parcelable> getParcelable(key: String): T = bundle.getParcelable(key)
+  override fun <T : Parcelable> getParcelable(key: String, defaultValue: T): T = bundle.getParcelable(key) ?: defaultValue
   override fun <T : Parcelable> putParcelable(key: String, value: T) = bundle.putParcelable(key, value)
 
   override fun remove(key: String) = bundle.remove(key)

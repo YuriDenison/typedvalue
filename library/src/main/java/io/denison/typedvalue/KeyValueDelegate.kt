@@ -23,16 +23,16 @@ interface KeyValueDelegate {
   fun getFloat(key: String, defaultValue: Float): Float
   fun putFloat(key: String, value: Float)
 
-  fun getStringSet(key: String): Set<String>
+  fun getStringSet(key: String, defaultValue: Set<String>): Set<String>
   fun putStringSet(key: String, value: Set<String>)
 
   fun getStringList(key: String, defaultValue: List<String>): List<String>
   fun putStringList(key: String, value: List<String>)
 
-  fun <T : Parcelable> getParcelable(key: String): T
+  fun <T : Parcelable> getParcelable(key: String, defaultValue: T): T
   fun <T : Parcelable> putParcelable(key: String, value: T)
 
-  fun contains(key: String): Boolean
+  operator fun contains(key: String): Boolean
 
   fun remove(key: String)
 

@@ -9,7 +9,7 @@ ext {
 
   mavenGroup = 'io.denison'
   mavenArtifactId = 'typedvalue'
-  mavenVersion = '0.1'
+  mavenVersion = '0.2'
 }
 
 group = mavenGroup
@@ -62,7 +62,6 @@ bintray {
     licenses = ['Apache-2.0']
     vcsUrl = "${githubUrl}.git"
     publish = true
-    override = true
 
     version {
       name = mavenVersion
