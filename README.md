@@ -1,5 +1,8 @@
 # TypedValue
-[ ![Download](https://api.bintray.com/packages/volkman/android/typedvalue/images/download.svg) ](https://bintray.com/volkman/android/typedvalue/_latestVersion)
+[![Build Status](https://img.shields.io/travis/yuridenison/typedvalue.svg)](https://travis-ci.org/ashdavies/rx-tasks)
+![Coverage](https://img.shields.io/codecov/c/github/yuridenison/typedvalue.svg)
+[![Download](https://api.bintray.com/packages/volkman/android/typedvalue/images/download.svg) ](https://bintray.com/volkman/android/typedvalue/_latestVersion)
+![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)
 
 TypedValue is a library project to simplify access to shared preferences and
 

@@ -6,6 +6,7 @@ ext.versions = [
     versionsGradlePlugin: '0.17.0',
     bintrayGradlePlugin : '1.8.0',
     androidMavenPlugin  : '2.0',
+    yacocoGradlePlugin  : '0.1.2',
 
     kotlin              : '1.2.31',
 
@@ -30,7 +31,8 @@ ext.gradlePlugins = [
     kotlin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
     versions    : "com.github.ben-manes:gradle-versions-plugin:$versions.versionsGradlePlugin",
     bintray     : "com.jfrog.bintray.gradle:gradle-bintray-plugin:$versions.bintrayGradlePlugin",
-    androidMaven: "com.github.dcendents:android-maven-gradle-plugin:$versions.androidMavenPlugin"
+    androidMaven: "com.github.dcendents:android-maven-gradle-plugin:$versions.androidMavenPlugin",
+    yacoco      : "com.dicedmelon.gradle:jacoco-android:$versions.yacocoGradlePlugin"
 ]
 
 ext.libraries = [
