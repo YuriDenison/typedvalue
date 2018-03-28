@@ -4,15 +4,13 @@ buildscript {
   repositories {
     google()
     jcenter()
-    mavenCentral()
   }
   dependencies {
     classpath gradlePlugins.android
     classpath gradlePlugins.kotlin
+    classpath gradlePlugins.bintrayRelease
     classpath gradlePlugins.versions
-    classpath gradlePlugins.bintray
     classpath gradlePlugins.yacoco
-    classpath gradlePlugins.androidMaven
   }
 }
 
@@ -20,7 +18,6 @@ allprojects {
   repositories {
     google()
     jcenter()
-    mavenCentral()
   }
 }
 

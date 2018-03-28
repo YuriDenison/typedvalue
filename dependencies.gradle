@@ -1,38 +1,36 @@
 ext.versions = [
-    compileSdk          : 27,
-    buildTools          : '27.0.3',
+    compileSdk                : 27,
+    buildTools                : '27.0.3',
 
-    androidGradlePlugin : '3.1.0',
-    versionsGradlePlugin: '0.17.0',
-    bintrayGradlePlugin : '1.8.0',
-    androidMavenPlugin  : '2.0',
-    yacocoGradlePlugin  : '0.1.2',
+    androidGradlePlugin       : '3.1.0',
+    versionsGradlePlugin      : '0.17.0',
+    bintrayReleaseGradlePlugin: '0.8.1',
+    yacocoGradlePlugin        : '0.1.2',
 
-    kotlin              : '1.2.31',
+    kotlin                    : '1.2.31',
 
-    supportLib          : '27.0.2',
-    constraintLayout    : '1.1.0-beta5',
+    supportLib                : '27.0.2',
+    constraintLayout          : '1.1.0-beta5',
 
-    gson                : '2.8.2',
+    gson                      : '2.8.2',
 
-    rxAndroid2          : '2.0.1',
-    rxJava2             : '2.1.12',
-    rxKotlin            : '2.2.0',
-    rxRelay             : '2.0.0',
-    timber              : '4.6.0',
-    snackbar            : '2.11.0',
+    rxAndroid2                : '2.0.1',
+    rxJava2                   : '2.1.12',
+    rxKotlin                  : '2.2.0',
+    rxRelay                   : '2.0.0',
+    timber                    : '4.6.0',
+    snackbar                  : '2.11.0',
 
-    junit               : '4.12',
-    robolectric         : '3.8'
+    junit                     : '4.12',
+    robolectric               : '3.8'
 ]
 
 ext.gradlePlugins = [
-    android     : "com.android.tools.build:gradle:$versions.androidGradlePlugin",
-    kotlin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-    versions    : "com.github.ben-manes:gradle-versions-plugin:$versions.versionsGradlePlugin",
-    bintray     : "com.jfrog.bintray.gradle:gradle-bintray-plugin:$versions.bintrayGradlePlugin",
-    androidMaven: "com.github.dcendents:android-maven-gradle-plugin:$versions.androidMavenPlugin",
-    yacoco      : "com.dicedmelon.gradle:jacoco-android:$versions.yacocoGradlePlugin"
+    android       : "com.android.tools.build:gradle:$versions.androidGradlePlugin",
+    kotlin        : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+    versions      : "com.github.ben-manes:gradle-versions-plugin:$versions.versionsGradlePlugin",
+    bintrayRelease: "com.novoda:bintray-release:$versions.bintrayReleaseGradlePlugin",
+    yacoco        : "com.dicedmelon.gradle:jacoco-android:$versions.yacocoGradlePlugin"
 ]
 
 ext.libraries = [

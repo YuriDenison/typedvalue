@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'jacoco-android'
 apply plugin: 'kotlin-android'
 
@@ -20,4 +21,21 @@ dependencies {
   testImplementation libraries.robolectric
 }
 
-apply from: 'publish.gradle'
+publish {
+  bintrayUser project.hasProperty("bintrayUser") ? project.getProperty("bintrayUser") : System.getenv('BINTRAY_USER')
+  bintrayKey project.hasProperty("bintrayKey") ? project.getProperty("bintrayKey") : System.getenv('BINTRAY_KEY')
+
+  repoName 'android'
+  userOrg 'volkman'
+
+  groupId 'io.denison'
+  artifactId 'typedvalue'
+  publishVersion '0.3'
+  desc 'Typed value abstraction to deal with SharedPreferences, Bundle, etc.'
+  website 'https://github.com/YuriDenison/typedvalue'
+  dryRun false
+}
+
+tasks.withType(Javadoc).all {
+  enabled = false
+}
