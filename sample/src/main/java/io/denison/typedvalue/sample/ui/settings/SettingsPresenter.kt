@@ -21,7 +21,7 @@ class SettingsPresenter @Inject constructor(
     Observables.combineLatest(
         appPreferences.animationTypeValue.asObservable().startWith(appPreferences.animationTypeValue.get()),
         appPreferences.scaleValue.asObservable().startWith(appPreferences.scaleValue.get()),
-        { type, scale -> ViewModel.Content(type, scale) }
+        { type, scale -> ViewModel.Content(type, (scale * 100).toInt()) }
     )
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
@@ -39,7 +39,7 @@ class SettingsPresenter @Inject constructor(
   }
 
   private fun handleViewAction(action: ViewAction) = when (action) {
-    is ViewAction.ScaleChanged         -> appPreferences.scaleValue.set(action.value)
+    is ViewAction.ScaleChanged         -> appPreferences.scaleValue.set(action.value / 100f)
     is ViewAction.AnimationTypeClicked -> appPreferences.animationTypeValue.set(when (action.type) {
       AnimationType.CONFETTI -> AnimationType.PLANE
       AnimationType.PLANE    -> AnimationType.FAVORITE

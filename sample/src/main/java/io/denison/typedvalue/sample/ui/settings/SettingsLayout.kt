@@ -35,7 +35,7 @@ class SettingsLayout(context: Context, attributeSet: AttributeSet) : MvpConstrai
       override fun onStopTrackingTouch(seekBar: SeekBar?) {}
       override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         if (fromUser)
-          actionsRelay.accept(ViewAction.ScaleChanged(progress / 100f))
+          actionsRelay.accept(ViewAction.ScaleChanged(progress))
       }
     })
   }
@@ -47,7 +47,7 @@ class SettingsLayout(context: Context, attributeSet: AttributeSet) : MvpConstrai
   private fun bindContent(model: Content) {
     this.model = model
     imageTypeSettingText.text = model.type.name
-    scaleSettingValue.progress = (model.scale * 100).toInt()
+    scaleSettingValue.progress = model.scale
   }
 
   override fun showWelcomeMessage() {

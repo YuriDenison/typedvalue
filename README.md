@@ -11,7 +11,7 @@ Common
 
 ## Demo app
 The `sample` application demonstrates: 
-* benefits of observable SharedPreferences with uni-directional data flow of SettingsView
+* benefits of observable SharedPreferences with uni-directional data flow of ['SettingsPresenter'][settings_presenter]
 * custom ['TypedValue'][typed_value]: [AnimationTypeValue][animation_type_value]
 
 ## Installation
@@ -30,3 +30,4 @@ Please see [LICENSE](/LICENSE)
 [key_value_delegate]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/KeyValueDelegate.kt
 [typed_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/TypedValue.kt
 [animation_type_value]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/preferences/value/AnimationTypeValue.kt
+[settings_presenter]: https://github.com/YuriDenison/typedvalue/master/sample/src/main/java/io/denison/typedvalue/sample/ui/settings/SettingsPresenter.kt

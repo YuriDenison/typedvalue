@@ -11,11 +11,11 @@ interface SettingsView : MvpView {
   fun observeViewActions(): Observable<ViewAction>
 
   sealed class ViewModel {
-    data class Content(val type: AnimationType, val scale: Float) : ViewModel()
+    data class Content(val type: AnimationType, val scale: Int) : ViewModel()
   }
 
   sealed class ViewAction {
     data class AnimationTypeClicked(val type: AnimationType) : ViewAction()
-    data class ScaleChanged(val value: Float) : ViewAction()
+    data class ScaleChanged(val value: Int) : ViewAction()
   }
 }
