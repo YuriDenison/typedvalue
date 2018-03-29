@@ -1,6 +1,6 @@
 # TypedValue
 [![Build Status](https://travis-ci.org/YuriDenison/typedvalue.svg?branch=master)](https://travis-ci.org/YuriDenison/typedvalue)
-![Coverage](https://img.shields.io/codecov/c/github/yuridenison/typedvalue.svg)
+[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
 [![Download](https://api.bintray.com/packages/volkman/android/typedvalue/images/download.svg) ](https://bintray.com/volkman/android/typedvalue/_latestVersion)
 ![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)
 
