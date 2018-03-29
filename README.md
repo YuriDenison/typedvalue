@@ -24,6 +24,8 @@ The `sample` application demonstrates:
 * benefits of observable SharedPreferences with uni-directional data flow of ['SettingsPresenter'][settings_presenter]
 * custom ['TypedValue'][typed_value]: [AnimationTypeValue][animation_type_value]
 
+![image](https://github.com/YuriDenison/typedvalue/blob/master/art/sample.gif)
+
 ## Installation
 Add the following dependency to your `build.gradle` file:
 
