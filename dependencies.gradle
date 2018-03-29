@@ -10,9 +10,10 @@ ext.versions = [
     kotlin                    : '1.2.31',
 
     supportLib                : '27.0.2',
-    constraintLayout          : '1.1.0-beta5',
-
+    constraintLayout          : '1.1.0-beta6',
+    dagger                    : '2.15',
     gson                      : '2.8.2',
+    lottie                    : '2.5.1',
 
     rxAndroid2                : '2.0.1',
     rxJava2                   : '2.1.12',
@@ -43,7 +44,11 @@ ext.libraries = [
     supportV4         : "com.android.support:support-v4:$versions.supportLib",
     constraintLayout  : "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
 
+    dagger            : "com.google.dagger:dagger:$versions.dagger",
+    daggerCompiler    : "com.google.dagger:dagger-compiler:$versions.dagger",
+
     gson              : "com.google.code.gson:gson:$versions.gson",
+    lottie            : "com.airbnb.android:lottie:$versions.lottie",
     timber            : "com.jakewharton.timber:timber:$versions.timber",
     snackbar          : "com.nispok:snackbar:$versions.snackbar",
 

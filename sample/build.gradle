@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
   compileSdkVersion versions.compileSdk
@@ -7,6 +9,7 @@ android {
 
   defaultConfig {
     applicationId "io.denison.typedvalue.sample"
+
     minSdkVersion 19
     targetSdkVersion 27
     versionCode 1
@@ -15,8 +18,18 @@ android {
 }
 
 dependencies {
+  implementation project(':library')
+
   implementation libraries.kotlinStdLib
   implementation libraries.supportAppCompat
   implementation libraries.timber
   implementation libraries.rxJava2
+  implementation libraries.rxAndroid2
+  implementation libraries.rxKotlin
+  implementation libraries.rxRelay
+  implementation libraries.constraintLayout
+  implementation libraries.lottie
+
+  implementation libraries.dagger
+  kapt libraries.daggerCompiler
 }

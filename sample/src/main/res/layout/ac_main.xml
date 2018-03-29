@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <View
+      android:id="@+id/divider"
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/divider"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.65"/>
+
+  <io.denison.typedvalue.sample.ui.animation.AnimationLayout
+      android:id="@+id/shapeLayout"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toTopOf="@id/divider"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_cacheStrategy="strong"
+        app:lottie_loop="true"
+        tools:lottie_fileName="favorite_app_icon.json"/>
+  </io.denison.typedvalue.sample.ui.animation.AnimationLayout>
+
+  <io.denison.typedvalue.sample.ui.settings.SettingsLayout
+      android:id="@+id/settingsLayout"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/divider">
+
+    <View
+        android:id="@+id/imageTypeSetting"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@drawable/setting_item_bkg"
+        app:layout_constraintBottom_toTopOf="@+id/scaleSetting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        style="@style/Setting.Item.Txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/image_type_title"
+        app:layout_constraintBottom_toBottomOf="@id/imageTypeSetting"
+        app:layout_constraintEnd_toStartOf="@+id/imageTypeSettingText"
+        app:layout_constraintStart_toStartOf="@id/imageTypeSetting"
+        app:layout_constraintTop_toTopOf="@id/imageTypeSetting"/>
+
+    <TextView
+        android:id="@+id/imageTypeSettingText"
+        style="@style/Setting.Pref.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:maxLines="1"
+        android:saveEnabled="false"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="@id/imageTypeSetting"
+        app:layout_constraintEnd_toEndOf="@id/imageTypeSetting"
+        app:layout_constraintTop_toTopOf="@id/imageTypeSetting"
+        tools:text="Favorite"/>
+
+    <View
+        android:id="@+id/scaleSetting"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@drawable/setting_item_bkg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageTypeSetting"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/scaleSettingTitle"
+        style="@style/Setting.Item.Txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/scale_title"
+        app:layout_constraintBottom_toBottomOf="@id/scaleSetting"
+        app:layout_constraintStart_toStartOf="@+id/scaleSetting"
+        app:layout_constraintTop_toTopOf="@id/scaleSetting"/>
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/scaleSettingValue"
+        style="@style/Setting.Pref.SeekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/scaleSetting"
+        app:layout_constraintEnd_toEndOf="@id/scaleSetting"
+        app:layout_constraintStart_toEndOf="@id/scaleSettingTitle"
+        app:layout_constraintTop_toTopOf="@id/scaleSetting"
+        tools:progress="3"
+        tools:text="Favorite"/>
+
+  </io.denison.typedvalue.sample.ui.settings.SettingsLayout>
+</android.support.constraint.ConstraintLayout>
