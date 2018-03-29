@@ -19,12 +19,38 @@ Common values are available out of the box:
 
 
 ## Demo app
+![image](https://github.com/YuriDenison/typedvalue/blob/master/art/sample.gif)
+
 The `sample` application demonstrates: 
 * Convenient way to manage application preferences: ['AppPreferences'][app_preferences] and ['AppPreferencesImpl'][app_preferences_impl]
+  
+  Any calls (`get()`, `set()`, `asObservable()`, etc.) of each preference can be easily find via interface properties
+  ``` kotlin
+   interface AppPreferences {
+     val animationTypeValue: AnimationTypeValue
+     val scaleValue: FloatValue
+     val messageShownValue: BoolValue
+   }
+  ```
+  ``` kotlin
+   class AppPreferencesImpl(app: Application) : AppPreferences {
+     private val delegate = PreferenceDelegate(PreferenceManager.getDefaultSharedPreferences(app))
+   
+     override val animationTypeValue: AnimationTypeValue by lazy { AnimationTypeValue(delegate, KEY_ANIMATION_TYPE, AnimationType.CONFETTI) }
+     override val scaleValue: FloatValue by lazy { FloatValue(delegate, KEY_SIZE, 0.8f) }
+     override val messageShownValue: BoolValue by lazy { BoolValue(delegate, KEY_MESSAGE_SHOWN) }
+   
+     private companion object {
+       const val KEY_ANIMATION_TYPE = ".key_animation_type"
+       const val KEY_SIZE = ".key_size"
+       const val KEY_MESSAGE_SHOWN = ".key_message_shown"
+     }
+   }
+  ```
+
+
 * benefits of observable SharedPreferences with uni-directional data flow of ['SettingsPresenter'][settings_presenter]
 * custom ['TypedValue'][typed_value]: [AnimationTypeValue][animation_type_value]
-
-![image](https://github.com/YuriDenison/typedvalue/blob/master/art/sample.gif)
 
 ## Installation
 Add the following dependency to your `build.gradle` file:
@@ -41,10 +67,10 @@ Please see [LICENSE](/LICENSE)
 
 [key_value_delegate]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/KeyValueDelegate.kt
 [typed_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/TypedValue.kt
-[animation_type_value]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/preferences/value/AnimationTypeValue.kt
+[animation_type_value]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/sample/preferences/value/AnimationTypeValue.kt
 [settings_presenter]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/sample/ui/settings/SettingsPresenter.kt
-[app_preferences]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/preferences/AppPreferences.kt
-[app_preferences_impl]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/preferences/AppPreferencesImpl.kt
+[app_preferences]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/sample/preferences/AppPreferences.kt
+[app_preferences_impl]: https://github.com/YuriDenison/typedvalue/blob/master/sample/src/main/java/io/denison/typedvalue/sample/preferences/AppPreferencesImpl.kt
 [bool_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/common/BoolValue.kt
 [double_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/common/DoubleValue.kt
 [float_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/common/FloatValue.kt
