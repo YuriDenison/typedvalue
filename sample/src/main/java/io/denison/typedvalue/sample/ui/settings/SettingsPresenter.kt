@@ -32,8 +32,8 @@ class SettingsPresenter @Inject constructor(
         .observeOn(Schedulers.io())
         .subscribeUntilDetach(onNext = this::handleViewAction, onError = Timber::e)
 
-    if (appPreferences.messageShownValue.get()) {
-      appPreferences.messageShownValue.set(false)
+    if (!appPreferences.messageShownValue.get()) {
+      appPreferences.messageShownValue.set(true)
       view.showWelcomeMessage()
     }
   }
