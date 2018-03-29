@@ -12,12 +12,12 @@ class AppPreferencesImpl(app: Application) : AppPreferences {
   private val delegate = PreferenceDelegate(PreferenceManager.getDefaultSharedPreferences(app))
 
   override val animationTypeValue: AnimationTypeValue by lazy { AnimationTypeValue(delegate, KEY_ANIMATION_TYPE, AnimationType.CONFETTI) }
-  override val scaleValue: FloatValue by lazy { FloatValue(delegate, KEY_SIZE, 0.8f) }
+  override val scaleValue: FloatValue by lazy { FloatValue(delegate, KEY_SCALE, 0.8f) }
   override val messageShownValue: BoolValue by lazy { BoolValue(delegate, KEY_MESSAGE_SHOWN) }
 
   private companion object {
     const val KEY_ANIMATION_TYPE = ".key_animation_type"
-    const val KEY_SIZE = ".key_size"
+    const val KEY_SCALE = ".key_scale"
     const val KEY_MESSAGE_SHOWN = ".key_message_shown"
   }
 }
