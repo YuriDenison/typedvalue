@@ -7,22 +7,29 @@
 TypedValue is a tiny library project to simplify access to SharedPreferences, Bundle or any other key-value storage with it's own [`KeyValueDelegate`][key_value_delegate] 
 
 Common values are available out of the box: 
-* ['BoolValue'][bool_value]
-* ['StringValue'][string_value]
-* ['IntValue'][int_value]
-* ['LongValue'][long_value]
-* ['FloatValue'][float_value]
-* ['DoubleValue'][double_value]
-* ['ParcelableValue'][parcelable_value]
-* ['StringListValue'][string_list_value]
-* ['StringSetValue'][string_set_value]
+* [BoolValue][bool_value]
+* [StringValue][string_value]
+* [IntValue][int_value]
+* [LongValue][long_value]
+* [FloatValue][float_value]
+* [DoubleValue][double_value]
+* [ParcelableValue][parcelable_value]
+* [StringListValue][string_list_value]
+* [StringSetValue][string_set_value]
+
+Date module contains custom TypedValues for managing dates:
+* [DateValue][date_value]
+* [LocalDateValue][local_date_value]
+* [LocalDateTimeValue][local_date_time_value]
+
+For `java.time` entities [ThreeTen][threeten] library is used.
 
 
 ## Demo app
 ![image](https://github.com/YuriDenison/typedvalue/blob/master/art/sample.gif)
 
 The `sample` application demonstrates: 
-* Convenient way to manage application preferences: ['AppPreferences'][app_preferences] and ['AppPreferencesImpl'][app_preferences_impl]
+* Convenient way to manage application preferences: [AppPreferences][app_preferences] and [AppPreferencesImpl][app_preferences_impl]
   
   Any calls (`get()`, `set()`, `asObservable()`, etc.) of each preference can be easily find via interface properties
   ``` kotlin
@@ -50,7 +57,7 @@ The `sample` application demonstrates:
 
 
 * benefits of observable SharedPreferences with uni-directional data flow of ['SettingsPresenter'][settings_presenter]
-* custom ['TypedValue'][typed_value]: [AnimationTypeValue][animation_type_value]
+* custom [TypedValue][typed_value]: [AnimationTypeValue][animation_type_value]
 
 ## Installation
 Add the following dependency to your `build.gradle` file:
@@ -58,6 +65,7 @@ Add the following dependency to your `build.gradle` file:
 ```
 dependencies {
     implementation 'io.denison:typedvalue:${LATEST_VERSION}'
+    implementation 'io.denison:typedvalue-date:${LATEST_VERSION}'
 }
 ```
 
@@ -80,3 +88,7 @@ Please see [LICENSE](/LICENSE)
 [string_list_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/common/StringListValue.kt
 [string_set_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/common/StringSetValue.kt
 [string_value]: https://github.com/YuriDenison/typedvalue/blob/master/library/src/main/java/io/denison/typedvalue/common/StringValue.kt
+[date_value]: https://github.com/YuriDenison/typedvalue/blob/master/library-date/src/main/java/io/denison/typedvalue/date/DateValue.kt
+[local_date_value]: https://github.com/YuriDenison/typedvalue/blob/master/library-date/src/main/java/io/denison/typedvalue/date/LocalDateValue.kt
+[local_date_time_value]: https://github.com/YuriDenison/typedvalue/blob/master/library-date/src/main/java/io/denison/typedvalue/date/LocalDateTimeValue.kt
+[threeten]: https://github.com/JakeWharton/ThreeTenABP

@@ -1,3 +1,12 @@
+ext.bintrayConstants = [
+    repoName      : 'android',
+    userOrg       : 'volkman',
+    libraryDesc   : 'Typed value abstraction to deal with SharedPreferences, Bundle, etc.',
+    githubUrl     : 'https://github.com/YuriDenison/typedvalue',
+
+    libraryVersion: '0.9'
+]
+
 ext.versions = [
     compileSdk                : 27,
     buildTools                : '27.0.3',
@@ -14,6 +23,7 @@ ext.versions = [
     dagger                    : '2.15',
     gson                      : '2.8.2',
     lottie                    : '2.5.1',
+    threeten                  : '1.0.5',
 
     rxAndroid2                : '2.0.1',
     rxJava2                   : '2.1.12',
@@ -23,7 +33,9 @@ ext.versions = [
     snackbar                  : '2.11.0',
 
     junit                     : '4.12',
-    robolectric               : '3.8'
+    robolectric               : '3.8',
+
+    typedvalue                : '0.9'
 ]
 
 ext.gradlePlugins = [
@@ -51,6 +63,7 @@ ext.libraries = [
     lottie            : "com.airbnb.android:lottie:$versions.lottie",
     timber            : "com.jakewharton.timber:timber:$versions.timber",
     snackbar          : "com.nispok:snackbar:$versions.snackbar",
+    threeten          : "com.jakewharton.threetenabp:threetenabp:$versions.threeten",
 
     rxAndroid2        : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid2",
     rxJava2           : "io.reactivex.rxjava2:rxjava:$versions.rxJava2",
@@ -60,4 +73,6 @@ ext.libraries = [
     junit             : "junit:junit:$versions.junit",
     kotlinTestJunit   : "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
     robolectric       : "org.robolectric:robolectric:$versions.robolectric",
+
+    typedvalue        : "io.denison:typedvalue:$versions.typedvalue"
 ]

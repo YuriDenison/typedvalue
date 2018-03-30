@@ -13,8 +13,8 @@ android {
 }
 
 dependencies {
-  implementation libraries.kotlinStdLib
-  implementation libraries.rxJava2
+  implementation libraries.typedvalue
+  implementation libraries.threeten
 
   testImplementation libraries.junit
   testImplementation libraries.kotlinTestJunit
@@ -33,7 +33,7 @@ publish {
   dryRun false
 
   groupId 'io.denison'
-  artifactId 'typedvalue'
+  artifactId 'typedvalue-date'
 }
 
 tasks.withType(Javadoc).all {
