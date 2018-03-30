@@ -4,7 +4,7 @@ ext.bintrayConstants = [
     libraryDesc   : 'Typed value abstraction to deal with SharedPreferences, Bundle, etc.',
     githubUrl     : 'https://github.com/YuriDenison/typedvalue',
 
-    libraryVersion: '0.9'
+    libraryVersion: '0.9.1'
 ]
 
 ext.versions = [
