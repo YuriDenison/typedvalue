@@ -35,7 +35,7 @@ ext.versions = [
     junit                     : '4.12',
     robolectric               : '3.8',
 
-    typedvalue                : '0.9'
+    typedvalue                : '0.9.1'
 ]
 
 ext.gradlePlugins = [
