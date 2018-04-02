@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/YuriDenison/typedvalue.svg?branch=master)](https://travis-ci.org/YuriDenison/typedvalue)
 [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
 [![Download](https://api.bintray.com/packages/volkman/android/typedvalue/images/download.svg) ](https://bintray.com/volkman/android/typedvalue/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-TypedValue-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6872)
 ![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)
 
 TypedValue is a tiny library project to simplify access to SharedPreferences, Bundle or any other key-value storage with it's own [`KeyValueDelegate`][key_value_delegate] 
