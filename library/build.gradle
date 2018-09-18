@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'jacoco-android'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
@@ -26,10 +25,9 @@ dependencies {
   testImplementation libraries.robolectric
 }
 
-
 publishing {
   publications {
-    Library(MavenPublication) {
+    Production(MavenPublication) {
       artifact("$buildDir/outputs/aar/library-release.aar")
       artifact sourcesJar
 
@@ -56,7 +54,7 @@ publishing {
 bintray {
   user = project.hasProperty("bintrayUser") ? project.getProperty("bintrayUser") : System.getenv('BINTRAY_USER')
   key = project.hasProperty("bintrayKey") ? project.getProperty("bintrayKey") : System.getenv('BINTRAY_KEY')
-  publications = ['Library']
+  publications = ['Production']
   configurations = ['archives']
   override = true
 
