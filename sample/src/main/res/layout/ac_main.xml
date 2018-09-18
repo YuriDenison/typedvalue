@@ -114,7 +114,7 @@
         app:layout_constraintStart_toStartOf="@+id/scaleSetting"
         app:layout_constraintTop_toTopOf="@id/scaleSetting"/>
 
-    <android.support.v7.widget.AppCompatSeekBar
+    <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/scaleSettingValue"
         style="@style/Setting.Pref.SeekBar"
         android:layout_width="0dp"

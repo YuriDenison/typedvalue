@@ -1,7 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'jacoco-android'
 apply plugin: 'kotlin-android'
+
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+version = bintrayConstants.libraryVersion
+group = bintrayConstants.libraryGroup
 
 android {
   compileSdkVersion versions.compileSdk
@@ -21,21 +26,61 @@ dependencies {
   testImplementation libraries.robolectric
 }
 
-publish {
-  bintrayUser project.hasProperty("bintrayUser") ? project.getProperty("bintrayUser") : System.getenv('BINTRAY_USER')
-  bintrayKey project.hasProperty("bintrayKey") ? project.getProperty("bintrayKey") : System.getenv('BINTRAY_KEY')
 
-  repoName bintrayConstants.repoName
-  userOrg bintrayConstants.userOrg
-  publishVersion bintrayConstants.libraryVersion
-  desc bintrayConstants.libraryDesc
-  website bintrayConstants.githubUrl
-  dryRun false
+publishing {
+  publications {
+    Library(MavenPublication) {
+      artifact("$buildDir/outputs/aar/library-release.aar")
+      artifact sourcesJar
 
-  groupId 'io.denison'
-  artifactId 'typedvalue'
+      groupId bintrayConstants.libraryGroup
+      version bintrayConstants.libraryVersion
+      artifactId 'typedvalue'
+
+      pom.withXml {
+        def dependenciesNode = asNode().appendNode('dependencies')
+
+        configurations.implementation.allDependencies.each {
+          if (it.name != 'unspecified') {
+            def dependencyNode = dependenciesNode.appendNode('dependency')
+            dependencyNode.appendNode('groupId', it.group)
+            dependencyNode.appendNode('artifactId', it.name)
+            dependencyNode.appendNode('version', it.version)
+          }
+        }
+      }
+    }
+  }
 }
 
-tasks.withType(Javadoc).all {
-  enabled = false
+bintray {
+  user = project.hasProperty("bintrayUser") ? project.getProperty("bintrayUser") : System.getenv('BINTRAY_USER')
+  key = project.hasProperty("bintrayKey") ? project.getProperty("bintrayKey") : System.getenv('BINTRAY_KEY')
+  publications = ['Library']
+  configurations = ['archives']
+  override = true
+
+  pkg {
+    repo = bintrayConstants.repoName
+    name = 'typedvalue'
+    userOrg = bintrayConstants.userOrg
+    licenses = ['Apache-2.0']
+    vcsUrl = bintrayConstants.github
+    dryRun = false
+    publish = true
+
+    version {
+      name = bintrayConstants.libraryVersion
+      desc = bintrayConstants.libraryDesc
+    }
+  }
+}
+
+task sourcesJar(type: Jar) {
+  classifier = 'sources'
+  from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+  archives sourcesJar
 }

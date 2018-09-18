@@ -22,7 +22,7 @@ class PreferenceDelegate(private val prefs: SharedPreferences) : KeyValueDelegat
   override fun getInt(key: String, defaultValue: Int) = prefs.getInt(key, defaultValue)
   override fun putInt(key: String, value: Int) = prefs.edit().putInt(key, value).apply()
 
-  override fun getString(key: String, defaultValue: String): String = prefs.getString(key, defaultValue)
+  override fun getString(key: String, defaultValue: String): String = prefs.getString(key, defaultValue) ?: defaultValue
   override fun putString(key: String, value: String) = prefs.edit().putString(key, value).apply()
 
   override fun getBoolean(key: String, defaultValue: Boolean) = prefs.getBoolean(key, defaultValue)
@@ -37,7 +37,7 @@ class PreferenceDelegate(private val prefs: SharedPreferences) : KeyValueDelegat
   override fun getFloat(key: String, defaultValue: Float) = prefs.getFloat(key, defaultValue)
   override fun putFloat(key: String, value: Float) = prefs.edit().putFloat(key, value).apply()
 
-  override fun getStringSet(key: String, defaultValue: Set<String>): Set<String> = prefs.getStringSet(key, defaultValue)
+  override fun getStringSet(key: String, defaultValue: Set<String>): Set<String> = prefs.getStringSet(key, defaultValue) ?: defaultValue
   override fun putStringSet(key: String, value: Set<String>) = prefs.edit().putStringSet(key, value).apply()
 
   override fun getStringList(key: String, defaultValue: List<String>) = throw IllegalArgumentException("Unsupported type 'List<String>'")

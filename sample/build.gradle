@@ -21,7 +21,8 @@ dependencies {
   implementation project(':library')
 
   implementation libraries.kotlinStdLib
-  implementation libraries.supportAppCompat
+  implementation libraries.androidAppCompat
+  implementation libraries.androidAnnotations
   implementation libraries.timber
   implementation libraries.rxJava2
   implementation libraries.rxAndroid2

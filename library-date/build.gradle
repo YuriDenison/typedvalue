@@ -1,7 +1,10 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.jfrog.bintray'
 apply plugin: 'jacoco-android'
 apply plugin: 'kotlin-android'
+
+version = bintrayConstants.libraryVersion
+group = bintrayConstants.libraryGroup
 
 android {
   compileSdkVersion versions.compileSdk
@@ -21,21 +24,19 @@ dependencies {
   testImplementation libraries.robolectric
 }
 
-publish {
-  bintrayUser project.hasProperty("bintrayUser") ? project.getProperty("bintrayUser") : System.getenv('BINTRAY_USER')
-  bintrayKey project.hasProperty("bintrayKey") ? project.getProperty("bintrayKey") : System.getenv('BINTRAY_KEY')
+bintray {
+  user = project.hasProperty("bintrayUser") ? project.getProperty("bintrayUser") : System.getenv('BINTRAY_USER')
+  key = project.hasProperty("bintrayKey") ? project.getProperty("bintrayKey") : System.getenv('BINTRAY_KEY')
+  pkg {
+    repo = bintrayConstants.repoName
+    name = 'typedvalue-date'
+    userOrg = bintrayConstants.userOrg
+    licenses = ['Apache-2.0']
+    vcsUrl = bintrayConstants.github
 
-  repoName bintrayConstants.repoName
-  userOrg bintrayConstants.userOrg
-  publishVersion bintrayConstants.libraryVersion
-  desc bintrayConstants.libraryDesc
-  website bintrayConstants.githubUrl
-  dryRun false
-
-  groupId 'io.denison'
-  artifactId 'typedvalue-date'
-}
-
-tasks.withType(Javadoc).all {
-  enabled = false
+    version {
+      name = bintrayConstants.libraryVersion
+      desc = bintrayConstants.libraryDesc
+    }
+  }
 }

@@ -1,7 +1,7 @@
 package io.denison.typedvalue
 
 import android.os.Bundle
-import io.denison.typedvalue.delegate.BundleDelegate
+import io.denison.typedvalue.delegate.MapDelegate
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -12,23 +12,24 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 @RunWith(RobolectricTestRunner::class)
-class BundleDelegateTest {
-  private lateinit var bundle: Bundle
-  private lateinit var delegate: BundleDelegate
+class MapDelegateTest {
+  private lateinit var map: MutableMap<String, Any>
+  private lateinit var delegate: MapDelegate
 
   @Before
   fun setUp() {
-    bundle = Bundle().apply {
-      putInt(KEY_INT_DEFAULT, 1)
-      putBoolean(KEY_BOOLEAN_DEFAULT, true)
-      putLong(KEY_LONG_DEFAULT, 1)
-      putString(KEY_STRING_DEFAULT, "default")
-      putDouble(KEY_DOUBLE_DEFAULT, 1.0)
-      putFloat(KEY_FLOAT_DEFAULT, 1f)
-      putStringArrayList(KEY_STRING_LIST_DEFAULT, arrayListOf("default"))
-      putParcelable(KEY_PARCELABLE_DEFAULT, PARCELABLE_BUNDLE)
-    }
-    delegate = BundleDelegate(bundle)
+    map = mutableMapOf(
+        KEY_INT_DEFAULT to 1,
+        KEY_BOOLEAN_DEFAULT to true,
+        KEY_LONG_DEFAULT to 1L,
+        KEY_STRING_DEFAULT to "default",
+        KEY_DOUBLE_DEFAULT to 1.0,
+        KEY_FLOAT_DEFAULT to 1f,
+        KEY_STRING_LIST_DEFAULT to arrayListOf("default"),
+        KEY_STRING_SET_DEFAULT to setOf("default"),
+        KEY_PARCELABLE_DEFAULT to PARCELABLE_BUNDLE
+    )
+    delegate = MapDelegate(map)
   }
 
   @Test
@@ -40,7 +41,7 @@ class BundleDelegateTest {
   @Test
   fun testPutInt() {
     delegate.putInt(KEY_INT, 1)
-    assertEquals(1, bundle.getInt(KEY_INT))
+    assertEquals(1, map[KEY_INT])
   }
 
   @Test
@@ -52,7 +53,7 @@ class BundleDelegateTest {
   @Test
   fun testPutBoolean() {
     delegate.putBoolean(KEY_BOOLEAN, true)
-    assertEquals(true, bundle.getBoolean(KEY_BOOLEAN))
+    assertEquals(true, map[KEY_BOOLEAN])
   }
 
   @Test
@@ -64,7 +65,7 @@ class BundleDelegateTest {
   @Test
   fun testPutLong() {
     delegate.putLong(KEY_LONG, 1)
-    assertEquals(1, bundle.getLong(KEY_LONG))
+    assertEquals(1L, map[KEY_LONG])
   }
 
   @Test
@@ -76,7 +77,7 @@ class BundleDelegateTest {
   @Test
   fun testPutString() {
     delegate.putString(KEY_STRING, "val")
-    assertEquals("val", bundle.getString(KEY_STRING))
+    assertEquals("val", map[KEY_STRING])
   }
 
   @Test
@@ -88,7 +89,7 @@ class BundleDelegateTest {
   @Test
   fun testPutDouble() {
     delegate.putDouble(KEY_DOUBLE, 2.0)
-    assertEquals(2.0, bundle.getDouble(KEY_DOUBLE))
+    assertEquals(2.0, map[KEY_DOUBLE])
   }
 
   @Test
@@ -100,17 +101,19 @@ class BundleDelegateTest {
   @Test
   fun testPutFloat() {
     delegate.putFloat(KEY_FLOAT, 2f)
-    assertEquals(2f, bundle.getFloat(KEY_FLOAT))
+    assertEquals(2f, map[KEY_FLOAT])
   }
 
   @Test
   fun testGetStringSet() {
-    assertFails { delegate.getStringSet(KEY_STRING_SET, emptySet()) }
+    assertEquals(setOf("default"), delegate.getStringSet(KEY_STRING_SET_DEFAULT, emptySet()))
+    assertEquals(emptySet(), delegate.getStringSet(KEY_STRING_SET, emptySet()))
   }
 
   @Test
   fun testPutStringSet() {
-    assertFails { delegate.putStringSet(KEY_STRING_SET, setOf()) }
+    delegate.putStringSet(KEY_STRING_SET, setOf("val"))
+    assertEquals(setOf("val"), map[KEY_STRING_SET])
   }
 
   @Test
@@ -122,7 +125,7 @@ class BundleDelegateTest {
   @Test
   fun testPutStringList() {
     delegate.putStringList(KEY_STRING_LIST, arrayListOf("val"))
-    assertEquals(arrayListOf("val"), bundle.getStringArrayList(KEY_STRING_LIST))
+    assertEquals(arrayListOf("val"), map[KEY_STRING_LIST])
   }
 
   @Test
@@ -135,7 +138,7 @@ class BundleDelegateTest {
   @Test
   fun testPutParcelable() {
     delegate.putParcelable(KEY_PARCELABLE, PARCELABLE_BUNDLE)
-    assertEquals(PARCELABLE_BUNDLE, bundle.getParcelable(KEY_PARCELABLE)!!)
+    assertEquals(PARCELABLE_BUNDLE, map[KEY_PARCELABLE])
   }
 
   @Test
@@ -148,14 +151,14 @@ class BundleDelegateTest {
   fun testRemove() {
     delegate.remove(KEY_INT_DEFAULT)
     assertTrue { KEY_INT_DEFAULT !in delegate }
-    assertFalse { bundle.containsKey(KEY_INT_DEFAULT) }
+    assertFalse { map.containsKey(KEY_INT_DEFAULT) }
   }
 
   @Test
   fun testClear() {
     delegate.clear()
     assertTrue { KEY_INT_DEFAULT !in delegate }
-    assertTrue { bundle.isEmpty }
+    assertTrue { map.isEmpty() }
   }
 
 
@@ -173,6 +176,7 @@ class BundleDelegateTest {
     const val KEY_FLOAT = "KEY_FLOAT"
     const val KEY_FLOAT_DEFAULT = "KEY_FLOAT_DEFAULT"
     const val KEY_STRING_SET = "KEY_STRING_SET"
+    const val KEY_STRING_SET_DEFAULT = "KEY_STRING_SET_DEFAULT"
     const val KEY_STRING_LIST = "KEY_STRING_LIST"
     const val KEY_STRING_LIST_DEFAULT = "KEY_STRING_LIST_DEFAULT"
     const val KEY_PARCELABLE = "KEY_PARCELABLE"

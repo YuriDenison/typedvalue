@@ -1,8 +1,8 @@
 package io.denison.typedvalue.sample.mvp.view
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
+import androidx.constraintlayout.widget.ConstraintLayout
 import io.denison.typedvalue.sample.mvp.MvpPresenter
 import io.denison.typedvalue.sample.mvp.MvpView
 

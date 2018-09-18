@@ -1,7 +1,7 @@
 package io.denison.typedvalue.sample.mvp.presenter
 
-import android.support.annotation.CallSuper
-import android.support.annotation.UiThread
+import androidx.annotation.CallSuper
+import androidx.annotation.UiThread
 import io.denison.typedvalue.sample.mvp.MvpPresenter
 import io.denison.typedvalue.sample.mvp.MvpView
 import io.reactivex.Completable
