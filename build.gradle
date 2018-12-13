@@ -1,8 +1,8 @@
 buildscript {
-  ext.kotlin_version = '1.2.70'
   apply from: 'dependencies.gradle'
 
   repositories {
+    mavenLocal()
     google()
     jcenter()
   }
@@ -12,12 +12,12 @@ buildscript {
     classpath gradlePlugins.bintray
     classpath gradlePlugins.versions
     classpath gradlePlugins.yacoco
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
 }
 
 allprojects {
   repositories {
+    mavenLocal()
     google()
     jcenter()
   }

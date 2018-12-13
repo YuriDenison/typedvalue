@@ -34,7 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_cacheStrategy="strong"
         app:lottie_loop="true"
         tools:lottie_fileName="favorite_app_icon.json"/>
   </io.denison.typedvalue.sample.ui.animation.AnimationLayout>
