@@ -5,7 +5,7 @@ ext.bintrayConstants = [
     libraryDesc   : 'Typed value abstraction to deal with SharedPreferences, Bundle, etc.',
     github        : 'https://github.com/YuriDenison/typedvalue.git',
 
-    libraryVersion: '0.9.3'
+    libraryVersion: '0.9.4'
 ]
 
 ext.versions = [
@@ -37,7 +37,7 @@ ext.versions = [
     junit               : '4.12',
     robolectric         : '4.0.2',
 
-    typedvalue          : '0.9.3'
+    typedvalue          : '0.9.4'
 ]
 
 ext.gradlePlugins = [

@@ -60,7 +60,7 @@ bintray {
 
   pkg {
     repo = bintrayConstants.repoName
-    name = 'typedvalue'
+    name = 'typedvalue-date'
     userOrg = bintrayConstants.userOrg
     licenses = ['Apache-2.0']
     vcsUrl = bintrayConstants.github
